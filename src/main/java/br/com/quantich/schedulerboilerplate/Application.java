@@ -2,6 +2,7 @@ package br.com.quantich.schedulerboilerplate;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.boot.jdbc.DataSourceBuilder;
 import org.springframework.context.annotation.Bean;
@@ -12,7 +13,7 @@ import javax.sql.DataSource;
 
 @SpringBootApplication
 @EnableScheduling
-public class SchedulerApplication {
+public class Application extends SpringBootServletInitializer {
     @Bean
     @Primary
     @ConfigurationProperties(prefix="spring.datasource")
@@ -27,7 +28,7 @@ public class SchedulerApplication {
     }
 
     public static void main(String[] args) {
-		SpringApplication.run(SchedulerApplication.class, args);
+		SpringApplication.run(Application.class, args);
 	}
 
 

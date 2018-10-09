@@ -17,9 +17,10 @@ apply plugin: 'java'
 apply plugin: 'eclipse'
 apply plugin: 'org.springframework.boot'
 apply plugin: 'io.spring.dependency-management'
+apply plugin: 'war'
 
 group = 'br.com.quantich'
-version = '0.0.1-SNAPSHOT'
+version = '1.0'
 sourceCompatibility = 1.8
 
 repositories {
@@ -32,9 +33,8 @@ repositories {
 dependencies {
 	compile('org.springframework.boot:spring-boot-starter-jdbc')
 	compile('org.springframework.boot:spring-boot-starter-web')
-	compile group: 'org.springframework.boot', name: 'spring-boot-starter-cloud-connectors', version: '1.3.2.RELEASE'
-	
+    runtime("org.springframework.boot:spring-boot-devtools:${springBootVersion}")
 	compile("com.oracle:ojdbc7:12.1.0.2")
 	testCompile('org.springframework.boot:spring-boot-starter-test')
-
+    providedRuntime("org.springframework.boot:spring-boot-starter-tomcat:${springBootVersion}")
 }
